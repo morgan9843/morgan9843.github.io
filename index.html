@@ -107,6 +107,7 @@
     </style>
 </head>
 <body>
+    <audio id="hornSound" src="boowomp.mp3" preload="auto"></audio>
     <div class="header">
         <h1 style="font-size:1in;font-weight: 200;margin: 10px;margin-top: 0px;">Welcome to Bobo Elderbirth's World</h1>
         <p style="font-size: larger;font-weight: 100;margin: 5px;">Discover the enigmatic world of our Circus Warlock from "Under the Big Top"</p>
@@ -150,6 +151,12 @@
         document.addEventListener('click', makeConfetti);
     </script>
     
+    <script>
+        document.addEventListener('click', function() {
+            var hornSound = document.getElementById('hornSound');
+            hornSound.play();
+        });
+    </script>
     
 </body>
 </html>
