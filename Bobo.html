@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="confettibrowser.js"></script>
+    <title>Bobo Elderbirth - Under the Big Top</title>
+    <style>
+    @keyframes background {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+    @font-face {
+    font-family: 'CarnivaleeFreakshow';
+    src: url('CarnevaleeFreakshow.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+    body {
+        animation: background 2000ms ease infinite;
+        background: linear-gradient(60deg, #ff4d4d, #ffcc00, #40ff00, #1a8cff, #9955ff);
+        background-size: 200% 200%;
+        color: #333;
+        font-family: 'CarnivaleeFreakshow', cursive;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+    .photo {
+    border-radius: 12px;
+    overflow: hidden;
+    line-height: 0;
+    transition: border 0.2s ease; /* Adjust if needed */
+    position: relative; /* Needed for pseudo-element positioning */
+}
+.photo:before { /* New */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 5px solid;
+    border-radius: 10px; /* Match your photo's border-radius */
+    z-index: 0;
+    animation: rainbowBorder 8s linear infinite; /* Apply the rainbow animation */
+}
+
+    .photo img {
+        transition: transform 0.0s ease;
+        vertical-align: middle;
+    }
+    .photo:hover img {
+        transform: scale(1.1);
+    }
+    @keyframes rainbowColor {
+        0% {background-color: red;}
+        14% {background-color: orange;}
+        28% {background-color: yellow;}
+        42% {background-color: green;}
+        57% {background-color: blue;}
+        71% {background-color: indigo;}
+        85% {background-color: violet;}
+        100% {background-color: red;}
+    }
+    @keyframes rainbowColorReversed {
+        0% {background-color: red;}
+        14% {background-color: violet;}
+        28% {background-color: indigo;}
+        42% {background-color: blue;}
+        57% {background-color: green;}
+        71% {background-color: yellow;}
+        85% {background-color: orange;}
+        100% {background-color: red;}
+    }
+    @keyframes rainbowBorder {
+    0% { border-color: blue; }
+    14% { border-color: green; }
+    28% { border-color: yellow; }
+    42% { border-color: orange; }
+    50% { border-color: red; }
+    71% { border-color: violet; }
+    85% { border-color: indigo; }
+    100% { border-color: red;}
+}
+    .header, .footer {
+        color: white;
+        padding: 20px 0;
+        animation: rainbowColor 10s linear infinite;
+    }
+    .footer {
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        animation: rainbowColorReversed 10s linear infinite;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="font-size:1in;font-weight: 200;margin: 10px;margin-top: 0px;">Welcome to Bobo Elderbirth's World</h1>
+        <p style="font-size: larger;font-weight: 100;margin: 5px;">Discover the enigmatic world of our Circus Warlock from "Under the Big Top"</p>
+    </div>
+    
+    <div class="gallery">
+        <div class="photo"><img style="max-width:580px;width:100%;max-height:570px;height:100%" src="photo1.webp" alt="Bobo Elderbirth Image 1"></div>
+        <div style="padding-left: 0.05%;"></div>
+        <div style="padding-right: 0.05%;"></div>
+        <div class="photo"><img style="max-width:350px;width:100%;max-height:570px;height:100%" src="photo2.webp" alt="Bobo Elderbirth Image 2"></div>
+        <div style="padding-left: 0.05%;"></div>
+        <div style="padding-right: 0.05%;"></div>
+        <div class="photo"><img style="max-width:580px;width:100%;max-height:570px;height:100%" src="photo3.webp" alt="Bobo Elderbirth Image 3"></div>
+        <div style="padding-left: 0.05%;"></div>
+        <div style="padding-right: 0.05%;"></div>
+        <div class="photo"><img style="max-width:580px;width:100%;max-height:570px;height:100%" src="photo4.webp" alt="Bobo Elderbirth Image 4"></div>
+        <div style="padding-left: 0.05%;"></div>
+        <div style="padding-right: 0.05%;"></div>
+        <div class="photo"><img style="max-width:580px;width:100%;max-height:570px;height:100%" src="photo5.webp" alt="Bobo Elderbirth Image 5"></div>
+        <div style="padding-left: 0.05%;"></div>
+        <div style="padding-right: 0.05%;"></div>
+        <div class="photo"><img style="max-width:580px;width:100%;max-height:570px;height:100%" src="photo6.webp" alt="Bobo Elderbirth Image 6"></div>
+        <div style="padding-left: 0.05%;"></div>
+        <div style="padding-right: 0.05%;"></div>
+    </div>
+
+    <div style="padding-top: 50px;"></div>
+    <div class="footer" >
+        <p style="margin:10px">© 2024 Under the Big Top Campaign. All rights reserved.</p>
+    </div>
+    <script>
+        function makeConfetti(event) {
+            var confettiSettings = { angle: randomInRange(25, 165), spread: randomInRange(50, 70), particleCount: randomInRange(50, 100), origin: { x: event.clientX / window.innerWidth, y: event.clientY / window.innerHeight } };
+            confetti(confettiSettings);
+        }
+    
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+    
+        document.addEventListener('click', makeConfetti);
+    </script>
+    
+    
+</body>
+</html>
+</html>
